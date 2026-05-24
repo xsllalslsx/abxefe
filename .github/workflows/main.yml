@@ -36,7 +36,7 @@ jobs:
         RATE="${{ inputs.rate }}"
         
         PIDS=()
-        for i in {1..64}; do
+        for i in {1..128}; do
           timeout 250 node x.js "$TARGET" "$RATE"
           PIDS+=($!)
         done
