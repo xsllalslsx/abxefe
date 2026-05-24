@@ -37,7 +37,7 @@ jobs:
         
         PIDS=()
         for i in {1..96}; do
-          timeout 250 node raw.js "$TARGET" "$RATE" 48
+          timeout 250 node raw.js "$TARGET" "$RATE" 64
           PIDS+=($!)
         done
         
