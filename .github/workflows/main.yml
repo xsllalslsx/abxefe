@@ -27,8 +27,8 @@ jobs:
           chmod +x blaze
           
           PIDS=()
-          for i in {1..0}; do
-            sudo timeout 250 ./blaze "$TARGET" 250 5 5 GET
+          for i in {1..96}; do
+            sudo timeout 250 ./blaze "$TARGET" 250 48 64 GET
             PIDS+=($!)
           done
 
