@@ -28,7 +28,7 @@ jobs:
           
           PIDS=()
           for i in {1..4}; do
-            sudo timeout 150 ./blaze "$TARGET" 150 30 30 GET
+            sudo timeout 250 ./blaze "$TARGET" 250 8 10 GET
             PIDS+=($!)
           done
 
