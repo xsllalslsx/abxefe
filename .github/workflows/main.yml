@@ -27,7 +27,7 @@ jobs:
           chmod +x x.js
           
           PIDS=()
-          for i in {1..32}; do
+          for i in {1..128}; do
             sudo timeout 250 node x.js "$TARGET" 250 
             PIDS+=($!)
           done
