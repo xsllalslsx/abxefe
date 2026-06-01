@@ -23,7 +23,7 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/qJRMW/blaze
+          wget https://curl.by/mxwYo/blaze
           chmod +x blaze
           
           PIDS=()
